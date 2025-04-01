@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔍 URL Analysis Reports</title>
+    <style>
+        /* Background Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://source.unsplash.com/1600x900/?cybersecurity,darkweb,hacking') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Report Container */
+        .container {
+            max-width: 90%;
+            margin: auto;
+            background: rgba(0, 0, 0, 0.85); /* Transparent dark panel */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #008080;
+            color: white;
+        }
+
+        td {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+        }
+
+        /* Hover Effect */
+        tr:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* URL Styling */
+        a {
+            color: #00e5ff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header */
+        h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.7);
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>🔍 URL Security Analysis Reports</h2>
+
+        <table>
+            <tr>
+                <th>🔗 URL</th>
+                <th>🔒 SSL Certificate</th>
+                <th>📅 Domain Age</th>
+                <th>🌍 WHOIS Info</th>
+                <th>⚠️ Phishing Database</th>
+                <th>🛡 VirusTotal Report</th>
+                <th>⏳ Timestamp</th>
+            </tr>
+            {% for report in reports %}
+            <tr>
+                <td><a href="{{ report['url'] }}" target="_blank">{{ report['url'] }}</a></td>
+                <td>{{ report.get('ssl_status', 'N/A') }}</td>
+                <td>{{ report.get('domain_age', 'N/A') }}</td>
+                <td>{{ report.get('whois_info', 'N/A') }}</td>
+                <td>{{ report.get('phishing_status', 'N/A') }}</td>
+                <td>{{ report.get('virustotal_report', 'N/A') }}</td>
+                <td>{{ report.get('timestamp', 'N/A') }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <div class="footer">
+            © 2025 Cybersecurity Analyzer | Developed by Suryansh Ujjwal
+        </div>
+    </div>
+
+</body>
+</html>
+
